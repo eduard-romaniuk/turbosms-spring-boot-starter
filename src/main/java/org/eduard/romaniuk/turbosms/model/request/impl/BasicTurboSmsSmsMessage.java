@@ -1,8 +1,9 @@
-package org.eduard.romaniuk.turbosms.model;
+package org.eduard.romaniuk.turbosms.model.request.impl;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.eduard.romaniuk.turbosms.model.request.TurboSmsMessage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,16 +11,16 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class TurboSmsSmsMessage {
+public class BasicTurboSmsSmsMessage implements TurboSmsMessage {
     private List<String> recipients;
     private Sms sms;
 
-    public TurboSmsSmsMessage(String sender, String text, List<String> recipients) {
+    public BasicTurboSmsSmsMessage(String sender, String text, List<String> recipients) {
         this.sms = new Sms(sender, text);
         this.recipients = recipients;
     }
 
-    public TurboSmsSmsMessage(String sender, String text, String... recipients) {
+    public BasicTurboSmsSmsMessage(String sender, String text, String... recipients) {
         this.sms = new Sms(sender, text);
         this.recipients = Arrays.asList(recipients);
     }

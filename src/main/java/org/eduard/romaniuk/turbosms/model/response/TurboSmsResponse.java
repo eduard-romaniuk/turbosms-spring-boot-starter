@@ -1,4 +1,4 @@
-package org.eduard.romaniuk.turbosms.model;
+package org.eduard.romaniuk.turbosms.model.response;
 
 import lombok.Getter;
 import lombok.Setter;
