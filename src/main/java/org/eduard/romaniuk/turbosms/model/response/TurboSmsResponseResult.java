@@ -5,14 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class TurboSmsResponse {
+public class TurboSmsResponseResult {
+    private String phone;
     private int response_code;
+    private String message_id;
     private String response_status;
-    private List<TurboSmsResponseResult> response_result;
 }
