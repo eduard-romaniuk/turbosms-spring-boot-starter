@@ -7,6 +7,7 @@ import org.eduard.romaniuk.turbosms.service.impl.TurboSmsMessageServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -23,6 +24,7 @@ import java.util.List;
 @ConditionalOnProperty(prefix = "turbosms", name = "token")
 public class TurboSmsAutoConfiguration {
     private final TurboSmsProperties properties;
+    private static final String BASE_URL = "https://api.turbosms.ua";
 
     @Bean
     public TurboSmsMessageService messageService() {
@@ -30,7 +32,7 @@ public class TurboSmsAutoConfiguration {
     }
 
     private RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().rootUri(BASE_URL).build();
         List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
         if (CollectionUtils.isEmpty(interceptors)) {
             interceptors = new ArrayList<>();
