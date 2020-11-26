@@ -14,6 +14,8 @@ public class BasicTsHybridMessage {
 
     private BasicTsHybridMessage(String sender) {
         this.hybrid = new TsHybridMessageImpl(sender);
+        this.sms = new TsSmsMessageImpl();
+        this.viber = new TsViberMessageImpl();
     }
 
     private BasicTsHybridMessage(String smsSender, String viberSender) {
@@ -59,16 +61,10 @@ public class BasicTsHybridMessage {
     }
 
     public BasicTsHybridMessageSmsSettings smsSettings() {
-        if (sms == null) {
-            this.sms = new TsSmsMessageImpl();
-        }
         return new BasicTsHybridMessageSmsSettings(sms, this);
     }
 
     public BasicTsHybridMessageViberSettings viberSettings() {
-        if (viber == null) {
-            this.viber = new TsViberMessageImpl();
-        }
         return new BasicTsHybridMessageViberSettings(viber, this);
     }
 
