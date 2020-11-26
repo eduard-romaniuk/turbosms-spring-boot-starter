@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public interface TurboSmsSmsSettings {
+public interface TsSmsSettings {
     List<String> getRecipients();
 
     String getSender();

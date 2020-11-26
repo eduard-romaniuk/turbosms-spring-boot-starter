@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class TurboSmsResponseResult {
+public class TsResponseResult {
     private String phone;
     private int response_code;
     private String message_id;

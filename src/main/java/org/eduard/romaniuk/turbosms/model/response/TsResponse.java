@@ -11,8 +11,8 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-public class TurboSmsResponse {
+public class TsResponse {
     private int response_code;
     private String response_status;
-    private List<TurboSmsResponseResult> response_result;
+    private List<TsResponseResult> response_result;
 }

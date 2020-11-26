@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Getter
 @Setter
 @ConfigurationProperties("turbosms")
-public class TurboSmsProperties {
+public class TsProperties {
     /**
      * Turbo SMS http api token
      */

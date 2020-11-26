@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public interface TurboSmsMessage {
+public interface TsMessage {
     List<String> getRecipients();
 
-    TurboSmsSmsSettings getSms();
+    TsSmsSettings getSms();
 }
