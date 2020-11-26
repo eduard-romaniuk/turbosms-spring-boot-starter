@@ -2,21 +2,21 @@ package org.eduard.romaniuk.turbosms.model.request.impl;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.eduard.romaniuk.turbosms.model.request.TsSmsSettings;
+import org.eduard.romaniuk.turbosms.model.request.TsSmsMessage;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @ToString
-class TsSmsSettingsImpl implements TsSmsSettings {
+class TsSmsMessageImpl implements TsSmsMessage {
     private List<String> recipients;
     private final String sender;
     private String text;
     private LocalDateTime startTime;
     private boolean flash;
 
-    public TsSmsSettingsImpl(String sender) {
+    public TsSmsMessageImpl(String sender) {
         this.sender = sender;
     }
 

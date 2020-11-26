@@ -1,6 +1,6 @@
 package org.eduard.romaniuk.turbosms.model.request.impl;
 
-import org.eduard.romaniuk.turbosms.model.request.TsMessage;
+import org.eduard.romaniuk.turbosms.model.request.TsHybridMessage;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -8,10 +8,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BasicTsSmsMessage {
-    private final TsSmsSettingsImpl settings;
+    private final TsSmsMessageImpl settings;
 
     private BasicTsSmsMessage(String sender) {
-        this.settings = new TsSmsSettingsImpl(sender);
+        this.settings = new TsSmsMessageImpl(sender);
     }
 
     public static BasicTsSmsMessage from(String sender) {
@@ -51,7 +51,7 @@ public class BasicTsSmsMessage {
         return this;
     }
 
-    public TsMessage build() {
-        return new TsMessageImpl(settings);
+    public TsHybridMessage build() {
+        return new TsHybridMessageImpl(settings);
     }
 }
