@@ -11,7 +11,7 @@ import java.util.List;
 @ToString
 class TsViberMessageImpl implements TsViberMessage {
     private List<String> recipients;
-    private final String sender;
+    private String sender;
     private String text;
     private LocalDateTime startTime;
     private int ttl;
@@ -24,6 +24,8 @@ class TsViberMessageImpl implements TsViberMessage {
     public TsViberMessageImpl(String sender) {
         this.sender = sender;
     }
+
+    public TsViberMessageImpl() {}
 
     void setRecipients(List<String> recipients) {
         this.recipients = recipients;

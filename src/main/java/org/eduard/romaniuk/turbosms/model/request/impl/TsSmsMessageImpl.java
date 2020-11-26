@@ -11,7 +11,7 @@ import java.util.List;
 @ToString
 class TsSmsMessageImpl implements TsSmsMessage {
     private List<String> recipients;
-    private final String sender;
+    private String sender;
     private String text;
     private LocalDateTime startTime;
     private boolean flash;
@@ -19,6 +19,8 @@ class TsSmsMessageImpl implements TsSmsMessage {
     public TsSmsMessageImpl(String sender) {
         this.sender = sender;
     }
+
+    TsSmsMessageImpl() {}
 
     void setRecipients(List<String> recipients) {
         this.recipients = recipients;
