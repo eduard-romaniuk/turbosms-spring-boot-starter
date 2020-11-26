@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 import org.eduard.romaniuk.turbosms.model.request.TsHybridMessage;
 import org.eduard.romaniuk.turbosms.model.request.TsSmsMessage;
+import org.eduard.romaniuk.turbosms.model.request.TsViberMessage;
 
 import java.util.List;
 
@@ -14,7 +15,8 @@ public class TsHybridMessageImpl implements TsHybridMessage {
     private String sender;
     private String text;
     private String startTime;
-    private final TsSmsMessage sms;
+    private TsSmsMessage sms;
+    private TsViberMessage viber;
 
     public TsHybridMessageImpl(TsSmsMessage settings) {
         this.sms = settings;

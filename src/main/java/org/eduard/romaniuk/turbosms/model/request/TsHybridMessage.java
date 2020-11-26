@@ -5,4 +5,5 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public interface TsHybridMessage extends TsMessage {
     TsSmsMessage getSms();
+    TsViberMessage getViber();
 }
