@@ -21,4 +21,8 @@ public class TsHybridMessageImpl implements TsHybridMessage {
     public TsHybridMessageImpl(TsSmsMessage settings) {
         this.sms = settings;
     }
+
+    public TsHybridMessageImpl(TsViberMessage settings) {
+        this.viber = settings;
+    }
 }
