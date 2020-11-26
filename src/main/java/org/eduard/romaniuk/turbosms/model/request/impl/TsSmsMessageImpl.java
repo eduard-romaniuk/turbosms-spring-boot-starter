@@ -14,7 +14,7 @@ class TsSmsMessageImpl implements TsSmsMessage {
     private String sender;
     private String text;
     private LocalDateTime startTime;
-    private boolean flash;
+    private Boolean flash;
 
     public TsSmsMessageImpl(String sender) {
         this.sender = sender;

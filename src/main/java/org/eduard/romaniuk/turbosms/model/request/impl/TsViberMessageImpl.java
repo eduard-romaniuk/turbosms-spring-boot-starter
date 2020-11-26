@@ -14,12 +14,12 @@ class TsViberMessageImpl implements TsViberMessage {
     private String sender;
     private String text;
     private LocalDateTime startTime;
-    private int ttl;
+    private Integer ttl;
     private String imageUrl;
     private String caption;
     private String action;
-    private boolean countClicks;
-    private boolean transactional;
+    private Boolean countClicks;
+    private Boolean transactional;
 
     public TsViberMessageImpl(String sender) {
         this.sender = sender;
@@ -63,7 +63,4 @@ class TsViberMessageImpl implements TsViberMessage {
         this.transactional = transactional;
     }
 
-    public boolean getCountClicks() {
-        return countClicks;
-    }
 }

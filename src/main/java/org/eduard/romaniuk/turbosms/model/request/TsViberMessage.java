@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public interface TsViberMessage extends TsMessage {
     @JsonProperty("ttl")
-    int getTtl();
+    Integer getTtl();
 
     @JsonProperty("image_url")
     String getImageUrl();
@@ -18,8 +18,8 @@ public interface TsViberMessage extends TsMessage {
     String getAction();
 
     @JsonProperty("count_clicks")
-    boolean getCountClicks();
+    Boolean getCountClicks();
 
     @JsonProperty("is_transactional")
-    boolean isTransactional();
+    Boolean getTransactional();
 }

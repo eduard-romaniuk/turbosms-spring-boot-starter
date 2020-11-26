@@ -6,5 +6,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public interface TsSmsMessage extends TsMessage {
     @JsonProperty("is_flash")
-    boolean isFlash();
+    Boolean getFlash();
 }
