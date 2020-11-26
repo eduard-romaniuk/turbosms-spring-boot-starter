@@ -9,10 +9,13 @@ import java.util.List;
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public interface TsMessage {
+    @JsonProperty("recipients")
     List<String> getRecipients();
 
+    @JsonProperty("sender")
     String getSender();
 
+    @JsonProperty("text")
     String getText();
 
     @JsonProperty("start_time")
