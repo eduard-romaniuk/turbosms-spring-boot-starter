@@ -1,6 +1,6 @@
 package org.eduard.romaniuk.turbosms.model.request.impl;
 
-import org.eduard.romaniuk.turbosms.model.request.TsHybridMessage;
+import org.eduard.romaniuk.turbosms.model.request.TsSmsMessage;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -8,10 +8,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BasicTsSmsMessage {
-    private final TsSmsMessageImpl settings;
+    private final TsSmsMessageImpl message;
 
     private BasicTsSmsMessage(String sender) {
-        this.settings = new TsSmsMessageImpl(sender);
+        this.message = new TsSmsMessageImpl(sender);
     }
 
     public static BasicTsSmsMessage from(String sender) {
@@ -19,39 +19,39 @@ public class BasicTsSmsMessage {
     }
 
     public BasicTsSmsMessage text(String text) {
-        settings.setText(text);
+        message.setText(text);
         return this;
     }
 
     public BasicTsSmsMessage recipients(List<String> recipients) {
-        settings.setRecipients(recipients);
+        message.setRecipients(recipients);
         return this;
     }
 
     public BasicTsSmsMessage recipients(String... recipients) {
-        settings.setRecipients(Arrays.asList(recipients));
+        message.setRecipients(Arrays.asList(recipients));
         return this;
     }
 
     public BasicTsSmsMessage recipient(String recipient) {
-        if (settings.getRecipients() == null) {
-            settings.setRecipients(new LinkedList<>());
+        if (message.getRecipients() == null) {
+            message.setRecipients(new LinkedList<>());
         }
-        settings.getRecipients().add(recipient);
+        message.getRecipients().add(recipient);
         return this;
     }
 
     public BasicTsSmsMessage startTime(LocalDateTime startTime) {
-        settings.setStartTime(startTime);
+        message.setStartTime(startTime);
         return this;
     }
 
     public BasicTsSmsMessage flash(boolean flash) {
-        settings.setFlash(flash);
+        message.setFlash(flash);
         return this;
     }
 
-    public TsHybridMessage build() {
-        return new TsHybridMessageImpl(settings);
+    public TsSmsMessage build() {
+        return message;
     }
 }

@@ -25,4 +25,30 @@ public class TsHybridMessageImpl implements TsHybridMessage {
     public TsHybridMessageImpl(TsViberMessage settings) {
         this.viber = settings;
     }
+
+    TsHybridMessageImpl() {}
+
+    void setRecipients(List<String> recipients) {
+        this.recipients = recipients;
+    }
+
+    void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    void setText(String text) {
+        this.text = text;
+    }
+
+    void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    void setSms(TsSmsMessage sms) {
+        this.sms = sms;
+    }
+
+    void setViber(TsViberMessage viber) {
+        this.viber = viber;
+    }
 }
