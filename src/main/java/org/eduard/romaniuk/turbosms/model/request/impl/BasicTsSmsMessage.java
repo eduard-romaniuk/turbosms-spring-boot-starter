@@ -46,8 +46,8 @@ public class BasicTsSmsMessage {
         return this;
     }
 
-    public BasicTsSmsMessage flash(boolean flash) {
-        message.setFlash(flash);
+    public BasicTsSmsMessage flash() {
+        message.setFlash(true);
         return this;
     }
 
