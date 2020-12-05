@@ -24,7 +24,7 @@
         <developer>
             <name>Eduard Romaniuk</name>
             <email>eduard.romanyuk1990@gmail.com</email>
-            <organization>org.eduard.romaniuk</organization>
+            <organization>io.github.eduard-romanyuk</organization>
             <organizationUrl>https://github.com/eduard-romanyuk/turbosms-spring-boot-starter</organizationUrl>
         </developer>
     </developers>
