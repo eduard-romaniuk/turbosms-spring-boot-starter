@@ -1,13 +1,12 @@
 <div id="header">
-  <h3 align="center">
+  <h1 align="center">
     TurboSMS SpringBoot starter
-  </h3>
+  </h1>
   <p align="center">
   	<small>
   		Provides infrastructure for using TurboSMS sms/viber provider in Spring Boot application
     </small>
    </p>
-  <hr/>
   <div id="badges" align="center">
     <a href="http://www.opensource.org/licenses/mit-license.php">
       <img alt="License" src="https://img.shields.io/github/license/eduard-romanyuk/turbosms-spring-boot-starter"/>
