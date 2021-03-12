@@ -14,8 +14,4 @@ import lombok.ToString;
 public class TsResponseResult extends TsResponseStatus{
     private String phone;
     private String message_id;
-
-    public Optional<String> getMessageIdOptional() {
-    	return Optional.ofNullable(message_id);
-    }
 }
