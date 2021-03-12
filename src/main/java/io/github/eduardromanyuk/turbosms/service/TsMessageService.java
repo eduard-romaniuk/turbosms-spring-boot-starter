@@ -4,6 +4,7 @@ import io.github.eduardromanyuk.turbosms.model.request.TsHybridMessage;
 import io.github.eduardromanyuk.turbosms.model.request.TsSmsMessage;
 import io.github.eduardromanyuk.turbosms.model.request.TsMessageStatusRequest;
 import io.github.eduardromanyuk.turbosms.model.request.TsViberMessage;
+import io.github.eduardromanyuk.turbosms.model.response.TsBalanceResponse;
 import io.github.eduardromanyuk.turbosms.model.response.TsMessageStatusResponse;
 import io.github.eduardromanyuk.turbosms.model.response.TsResponse;
 import io.github.eduardromanyuk.turbosms.model.response.TsResponseWrapper;
@@ -19,4 +20,6 @@ public interface TsMessageService {
     Optional<TsResponse> send(TsHybridMessage hybridMessage);
 
     Optional<TsResponseWrapper<List<TsMessageStatusResponse>>> status(TsMessageStatusRequest statusRequest);
+
+    Optional<TsResponseWrapper<TsBalanceResponse>> balance();
 }

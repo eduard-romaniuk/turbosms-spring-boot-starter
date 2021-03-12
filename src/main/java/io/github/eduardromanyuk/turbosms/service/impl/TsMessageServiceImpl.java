@@ -12,6 +12,7 @@ import io.github.eduardromanyuk.turbosms.model.request.TsMessageStatusRequest;
 import io.github.eduardromanyuk.turbosms.model.request.TsSmsMessage;
 import io.github.eduardromanyuk.turbosms.model.request.TsViberMessage;
 import io.github.eduardromanyuk.turbosms.model.request.impl.TsHybridMessageImpl;
+import io.github.eduardromanyuk.turbosms.model.response.TsBalanceResponse;
 import io.github.eduardromanyuk.turbosms.model.response.TsMessageStatusResponse;
 import io.github.eduardromanyuk.turbosms.model.response.TsResponse;
 import io.github.eduardromanyuk.turbosms.model.response.TsResponseWrapper;
@@ -53,6 +54,14 @@ public class TsMessageServiceImpl implements TsMessageService {
 				TsEndpoint.MESSAGE_STATUS,
 				statusRequest,
 				new ParameterizedTypeReference<TsResponseWrapper<List<TsMessageStatusResponse>>>() {}
+		);
+	}
+
+	@Override
+	public Optional<TsResponseWrapper<TsBalanceResponse>> balance() {
+		return requestService.request(
+				TsEndpoint.USER_BALANCE,
+				new ParameterizedTypeReference<TsResponseWrapper<TsBalanceResponse>>() {}
 		);
 	}
 
