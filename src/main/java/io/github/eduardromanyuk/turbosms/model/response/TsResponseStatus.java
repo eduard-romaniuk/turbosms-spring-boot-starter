@@ -7,7 +7,9 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @NoArgsConstructor
-public class TsResponse extends TsResponseWrapper<TsResponseResult> {
+public class TsResponseStatus {
+	private int response_code;
+	private String response_status;
 }

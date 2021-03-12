@@ -1,5 +1,7 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
+import java.util.Optional;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,11 +9,13 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
-public class TsResponseResult {
+public class TsResponseResult extends TsResponseStatus{
     private String phone;
-    private int response_code;
     private String message_id;
-    private String response_status;
+
+    public Optional<String> getMessageIdOptional() {
+    	return Optional.ofNullable(message_id);
+    }
 }
