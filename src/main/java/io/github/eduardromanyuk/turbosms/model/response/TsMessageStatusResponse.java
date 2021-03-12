@@ -14,7 +14,7 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
-public class TsMessageStatus extends TsResponseStatus {
+public class TsMessageStatusResponse extends TsResponseStatus {
 	private String message_id;
 	private String recipient;
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
