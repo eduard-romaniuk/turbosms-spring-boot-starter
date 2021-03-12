@@ -1,6 +1,6 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
-import java.util.Optional;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,6 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
-public class TsResponseResult extends TsResponseStatus{
-    private String phone;
-    private String message_id;
+public class TsResponseWrapper<T> extends TsResponseStatus {
+	private List<T> response_result;
 }
