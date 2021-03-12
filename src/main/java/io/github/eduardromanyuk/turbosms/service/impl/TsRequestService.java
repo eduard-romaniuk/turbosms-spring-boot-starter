@@ -33,6 +33,11 @@ class TsRequestService {
 		return Optional.ofNullable(response.getBody());
 	}
 
+	public <T> Optional<T> request(TsEndpoint endpoint, ParameterizedTypeReference<T> responseType) {
+		ResponseEntity<T> response = restTemplate.exchange(endpoint.value(), HttpMethod.POST, HttpEntity.EMPTY, responseType);
+		return Optional.ofNullable(response.getBody());
+	}
+
 	@SneakyThrows
 	private String toJson(Object object) {
 		return new ObjectMapper().writeValueAsString(object);
