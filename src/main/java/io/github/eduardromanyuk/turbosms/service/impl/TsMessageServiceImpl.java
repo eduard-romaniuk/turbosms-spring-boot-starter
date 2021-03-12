@@ -43,6 +43,9 @@ public class TsMessageServiceImpl implements TsMessageService {
 
 	@Override
 	public Optional<TsResponseWrapper<List<TsMessageStatusResponse>>> status(TsMessageStatusRequest statusRequest) {
+		if (statusRequest.messages() == null) {
+			throw new IllegalArgumentException("messages field cannot be null");
+		}
 		if (statusRequest.messages().isEmpty()) {
 			return messageStatusEmptyResponse();
 		}
