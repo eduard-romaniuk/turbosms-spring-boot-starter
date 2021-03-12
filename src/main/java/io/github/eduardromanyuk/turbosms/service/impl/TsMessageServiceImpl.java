@@ -32,13 +32,17 @@ public class TsMessageServiceImpl implements TsMessageService {
     }
 
     @Override
-    @SneakyThrows
     public Optional<TsResponse> send(TsHybridMessage hybridMessage) {
         String url = TsEndpoint.MESSAGE_SEND.value();
         HttpEntity<TsHybridMessage> body = new HttpEntity<>(hybridMessage);
         Class<TsResponse> responseType = TsResponse.class;
-        log.debug(new ObjectMapper().writeValueAsString(hybridMessage));
+        log.debug(toJson(hybridMessage));
         ResponseEntity<TsResponse> response = restTemplate.postForEntity(url, body, responseType);
         return Optional.ofNullable(response.getBody());
+    }
+
+	@SneakyThrows
+    private String toJson(Object object) {
+    	return new ObjectMapper().writeValueAsString(object);
     }
 }
