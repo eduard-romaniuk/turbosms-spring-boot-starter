@@ -1,5 +1,6 @@
 package io.github.eduardromanyuk.turbosms.service.impl;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,9 @@ public class TsMessageServiceImpl implements TsMessageService {
 
 	@Override
 	public Optional<TsResponseWrapper<List<TsMessageStatusResponse>>> status(TsMessageStatusRequest statusRequest) {
+		if (statusRequest.messages().isEmpty()) {
+			return messageStatusEmptyResponse();
+		}
 		return requestService.request(
 				TsEndpoint.MESSAGE_STATUS,
 				statusRequest,
@@ -49,4 +53,11 @@ public class TsMessageServiceImpl implements TsMessageService {
 		);
 	}
 
+	private Optional<TsResponseWrapper<List<TsMessageStatusResponse>>> messageStatusEmptyResponse() {
+		TsResponseWrapper<List<TsMessageStatusResponse>> response = new TsResponseWrapper<>();
+		response.setResponse_code(0);
+		response.setResponse_status("OK");
+		response.setResponse_result(Collections.emptyList());
+		return Optional.of(response);
+	}
 }
