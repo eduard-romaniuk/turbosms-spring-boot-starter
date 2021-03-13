@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import io.github.eduardromanyuk.turbosms.model.request.TsMessageStatusRequest;
+import lombok.Getter;
 
+@Getter
 public class TsMessageStatusRequestImpl implements TsMessageStatusRequest {
 	private final List<String> messages;
 
@@ -14,10 +16,5 @@ public class TsMessageStatusRequestImpl implements TsMessageStatusRequest {
 
 	public static TsMessageStatusRequestImpl of(String... messages) {
 		return new TsMessageStatusRequestImpl(Arrays.asList(messages));
-	}
-
-	@Override
-	public List<String> messages() {
-		return messages;
 	}
 }

@@ -1,7 +1,5 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,5 +10,5 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @NoArgsConstructor
 public class TsResponseWrapper<T> extends TsResponseStatus {
-	private List<T> response_result;
+	private T response_result;
 }

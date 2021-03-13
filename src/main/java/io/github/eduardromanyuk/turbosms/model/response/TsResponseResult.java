@@ -1,7 +1,5 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
-import java.util.Optional;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
