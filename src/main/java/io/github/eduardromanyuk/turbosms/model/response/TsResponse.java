@@ -1,18 +1,15 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
-public class TsResponse {
-    private int response_code;
-    private String response_status;
-    private List<TsResponseResult> response_result;
+public class TsResponse extends TsResponseWrapper<List<TsResponseResult>> {
 }

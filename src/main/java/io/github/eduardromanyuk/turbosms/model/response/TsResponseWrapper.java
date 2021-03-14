@@ -9,7 +9,6 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
-public class TsResponseResult extends TsResponseStatus{
-    private String phone;
-    private String message_id;
+public class TsResponseWrapper<T> extends TsResponseStatus {
+	private T response_result;
 }
