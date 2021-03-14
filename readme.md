@@ -6,6 +6,10 @@
   	<small>
   		Provides infrastructure for using TurboSMS sms/viber provider in Spring Boot application
     </small>
+    <br></br>
+    <small>
+      Check out <a href="https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/wiki">Wiki</a> pages for usage details 
+    </small>
    </p>
   <div id="badges" align="center">
     <a href="http://www.opensource.org/licenses/mit-license.php">
