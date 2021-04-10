@@ -1,14 +1,17 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter
 @ToString(callSuper = true)
-@NoArgsConstructor
-public class TsResponseWrapper<T> extends TsResponseStatus {
-	private T response_result;
+public final class TsResponseWrapper<T> extends TsResponseStatus {
+	@JsonProperty("response_result")
+	private final T responseResult;
+
+	public TsResponseWrapper(int responseCode, String responseStatus, T responseResult) {
+		super(responseCode, responseStatus);
+		this.responseResult = responseResult;
+	}
 }

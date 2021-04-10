@@ -1,4 +1,4 @@
-package io.github.eduardromanyuk.turbosms.model.request;
+package io.github.eduardromanyuk.turbosms.json;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

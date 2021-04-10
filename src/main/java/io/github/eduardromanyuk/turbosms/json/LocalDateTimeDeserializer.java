@@ -1,4 +1,4 @@
-package io.github.eduardromanyuk.turbosms.model.request;
+package io.github.eduardromanyuk.turbosms.json;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -15,7 +15,7 @@ public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime> {
 	}
 
 	@Override
-	public LocalDateTime deserialize(JsonParser jp, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+	public LocalDateTime deserialize(JsonParser jp, DeserializationContext deserializationContext) throws IOException {
 		return LocalDateTime.parse(
 				jp.getCodec().readValue(jp, String.class),
 				DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")

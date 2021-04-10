@@ -1,16 +1,16 @@
 package io.github.eduardromanyuk.turbosms.model.request.builder;
 
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageImpl;
+import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendRequestImpl;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class TsMessageAbstractBuilder<T extends TsMessageImpl, B extends TsMessageAbstractBuilder<T, B>> {
+public abstract class TsMessageSendAbstractBuilder<T extends TsMessageSendRequestImpl, B extends TsMessageSendAbstractBuilder<T, B>> {
     protected T message;
 
-    protected TsMessageAbstractBuilder(T message) {
+    protected TsMessageSendAbstractBuilder(T message) {
         this.message = message;
     }
 

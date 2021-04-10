@@ -1,31 +1,60 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
-import java.time.LocalDateTime;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import io.github.eduardromanyuk.turbosms.model.request.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.github.eduardromanyuk.turbosms.json.JsonLocalDateTime;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
+
 @Getter
-@Setter
 @ToString(callSuper = true)
-@NoArgsConstructor
-public class TsMessageStatusResponse extends TsResponseStatus {
-	private String message_id;
-	private String recipient;
-	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
-	private LocalDateTime sent;
-	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
-	private LocalDateTime updated;
-	private String status;
-	private String type;
-	private String rejected_status;
-	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
-	private LocalDateTime click_time;
+@EqualsAndHashCode(callSuper = false, of = "messageId")
+public final class TsMessageStatusResponse extends TsResponseStatus {
+	private static final String VIBER = "viber";
+	private static final String SMS = "sms";
+
+	@JsonProperty("message_id")
+	private final String messageId;
+
+	@JsonProperty("recipient")
+	private final String recipient;
+
+	@JsonLocalDateTime
+	@JsonProperty("sent")
+	private final LocalDateTime sent;
+
+	@JsonLocalDateTime
+	@JsonProperty("updated")
+	private final LocalDateTime updated;
+
+	@JsonProperty("status")
+	private final String status;
+
+	@JsonProperty("type")
+	private final String type;
+
+	@JsonProperty("rejected_status")
+	private final String rejectedStatus;
+
+	@JsonLocalDateTime
+	@JsonProperty("click_time")
+	private final LocalDateTime clickTime;
+
+	public TsMessageStatusResponse(int responseCode, String responseStatus, String messageId, String recipient,
+								   LocalDateTime sent, LocalDateTime updated, String status, String type,
+								   String rejectedStatus, LocalDateTime clickTime) {
+		super(responseCode, responseStatus);
+		this.messageId = messageId;
+		this.recipient = recipient;
+		this.sent = sent;
+		this.updated = updated;
+		this.status = status;
+		this.type = type;
+		this.rejectedStatus = rejectedStatus;
+		this.clickTime = clickTime;
+	}
 
 	/**
 	 * If true only response_status, response_code and message_id fields will be not-null
@@ -45,13 +74,13 @@ public class TsMessageStatusResponse extends TsResponseStatus {
 	 * If true rejected_status, click_time fields will be always null
 	 */
 	public boolean isSmsMessageStatus() {
-		return "sms".equals(type);
+		return SMS.equals(type);
 	}
 
 	/**
 	 * If true all fields will ve available
 	 */
 	public boolean isViberMessageStatus() {
-		return "viber".equals(type);
+		return VIBER.equals(type);
 	}
 }

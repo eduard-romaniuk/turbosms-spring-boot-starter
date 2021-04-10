@@ -8,10 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @RequiredArgsConstructor
-public class TsResponseStatus {
-	@JsonProperty("response_code")
-	private final int responseCode;
-
-	@JsonProperty("response_status")
-	private final String responseStatus;
+public final class TsUserBalanceResponse {
+	@JsonProperty("balance")
+	private final double balance;
 }

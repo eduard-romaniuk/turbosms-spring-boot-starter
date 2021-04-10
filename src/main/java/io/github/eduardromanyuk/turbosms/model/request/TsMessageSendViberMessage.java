@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public interface TsViberMessage extends TsMessage {
+public interface TsMessageSendViberMessage extends TsMessageSendRequest {
     @JsonProperty("ttl")
     Integer getTtl();
 

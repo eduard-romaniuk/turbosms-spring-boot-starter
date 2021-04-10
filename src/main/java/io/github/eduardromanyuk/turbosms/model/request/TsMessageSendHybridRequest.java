@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public interface TsHybridMessage extends TsMessage {
+public interface TsMessageSendHybridRequest extends TsMessageSendRequest {
     @JsonProperty("sms")
-    TsSmsMessage getSms();
+    TsMessageSendSmsRequest getSms();
 
     @JsonProperty("viber")
-    TsViberMessage getViber();
+    TsMessageSendViberMessage getViber();
 }

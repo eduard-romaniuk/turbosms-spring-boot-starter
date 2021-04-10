@@ -2,8 +2,8 @@ package io.github.eduardromanyuk.turbosms.configuration;
 
 import lombok.RequiredArgsConstructor;
 import io.github.eduardromanyuk.turbosms.property.TsProperties;
-import io.github.eduardromanyuk.turbosms.service.TsMessageService;
-import io.github.eduardromanyuk.turbosms.service.impl.TsMessageServiceImpl;
+import io.github.eduardromanyuk.turbosms.service.TsApiService;
+import io.github.eduardromanyuk.turbosms.service.impl.TsApiServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -27,8 +27,8 @@ public class TsAutoConfiguration {
     private static final String BASE_URL = "https://api.turbosms.ua";
 
     @Bean
-    public TsMessageService messageService() {
-        return new TsMessageServiceImpl(restTemplate());
+    public TsApiService messageService() {
+        return new TsApiServiceImpl(restTemplate());
     }
 
     private RestTemplate restTemplate() {
