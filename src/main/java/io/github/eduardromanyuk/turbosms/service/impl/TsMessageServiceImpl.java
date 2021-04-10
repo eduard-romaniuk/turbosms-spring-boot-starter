@@ -2,6 +2,7 @@ package io.github.eduardromanyuk.turbosms.service.impl;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import io.github.eduardromanyuk.turbosms.model.request.*;
@@ -80,6 +81,18 @@ public class TsMessageServiceImpl implements TsMessageService {
 		return requestService.request(
 				TsEndpoint.FILE_ADD,
 				dataRequest,
+				new ParameterizedTypeReference<TsResponseWrapper<TsFileResponse>>() {}
+		);
+	}
+
+	@Override
+	public Optional<TsResponseWrapper<TsFileResponse>> fileDetails(long id) {
+		if (id < 1) {
+			throw new IllegalArgumentException("id cannot be less than 1");
+		}
+		return requestService.request(
+				TsEndpoint.FILE_DETAILS,
+				Collections.singletonMap("id", id),
 				new ParameterizedTypeReference<TsResponseWrapper<TsFileResponse>>() {}
 		);
 	}

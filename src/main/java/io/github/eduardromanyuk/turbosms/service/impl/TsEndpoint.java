@@ -4,7 +4,8 @@ enum TsEndpoint {
     MESSAGE_SEND("/message/send.json"),
     MESSAGE_STATUS("/message/status.json"),
     USER_BALANCE("/user/balance.json"),
-    FILE_ADD("/file/add.json");
+    FILE_ADD("/file/add.json"),
+    FILE_DETAILS("/file/details.json");
     private final String value;
 
     TsEndpoint(String value) {

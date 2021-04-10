@@ -20,4 +20,6 @@ public interface TsMessageService {
     Optional<TsResponseWrapper<TsFileResponse>> fileAdd(TsFileUrlRequest urlRequest);
 
     Optional<TsResponseWrapper<TsFileResponse>> fileAdd(TsFileDataRequest dataRequest);
+
+    Optional<TsResponseWrapper<TsFileResponse>> fileDetails(long id);
 }
