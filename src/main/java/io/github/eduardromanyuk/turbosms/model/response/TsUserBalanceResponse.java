@@ -1,14 +1,13 @@
 package io.github.eduardromanyuk.turbosms.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
+@Setter
 @ToString
-@RequiredArgsConstructor
-public final class TsUserBalanceResponse {
+@NoArgsConstructor
+public class TsUserBalanceResponse {
 	@JsonProperty("balance")
-	private final double balance;
+	private double balance;
 }

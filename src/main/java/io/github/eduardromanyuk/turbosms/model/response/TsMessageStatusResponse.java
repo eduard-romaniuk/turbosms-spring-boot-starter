@@ -2,59 +2,45 @@ package io.github.eduardromanyuk.turbosms.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.eduardromanyuk.turbosms.json.JsonLocalDateTime;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
+@NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false, of = "messageId")
-public final class TsMessageStatusResponse extends TsResponseStatus {
-	private static final String VIBER = "viber";
-	private static final String SMS = "sms";
+public class TsMessageStatusResponse extends TsResponseStatus {
+	private static String VIBER = "viber";
+	private static String SMS = "sms";
 
 	@JsonProperty("message_id")
-	private final String messageId;
+	private String messageId;
 
 	@JsonProperty("recipient")
-	private final String recipient;
+	private String recipient;
 
 	@JsonLocalDateTime
 	@JsonProperty("sent")
-	private final LocalDateTime sent;
+	private LocalDateTime sent;
 
 	@JsonLocalDateTime
 	@JsonProperty("updated")
-	private final LocalDateTime updated;
+	private LocalDateTime updated;
 
 	@JsonProperty("status")
-	private final String status;
+	private String status;
 
 	@JsonProperty("type")
-	private final String type;
+	private String type;
 
 	@JsonProperty("rejected_status")
-	private final String rejectedStatus;
+	private String rejectedStatus;
 
 	@JsonLocalDateTime
 	@JsonProperty("click_time")
-	private final LocalDateTime clickTime;
-
-	public TsMessageStatusResponse(int responseCode, String responseStatus, String messageId, String recipient,
-								   LocalDateTime sent, LocalDateTime updated, String status, String type,
-								   String rejectedStatus, LocalDateTime clickTime) {
-		super(responseCode, responseStatus);
-		this.messageId = messageId;
-		this.recipient = recipient;
-		this.sent = sent;
-		this.updated = updated;
-		this.status = status;
-		this.type = type;
-		this.rejectedStatus = rejectedStatus;
-		this.clickTime = clickTime;
-	}
+	private LocalDateTime clickTime;
 
 	/**
 	 * If true only response_status, response_code and message_id fields will be not-null

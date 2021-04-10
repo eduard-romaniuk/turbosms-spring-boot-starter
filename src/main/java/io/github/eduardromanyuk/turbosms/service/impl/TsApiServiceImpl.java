@@ -17,8 +17,8 @@ public class TsApiServiceImpl implements TsApiService {
 	private static final String EMPTY = "";
 	private final TsRequestService requestService;
 
-	public TsApiServiceImpl(WebClient webClient) {
-		this.requestService = new TsRequestService(webClient);
+	public TsApiServiceImpl(WebClient webClient, String token) {
+		this.requestService = new TsRequestService(webClient, token);
 	}
 
 	@Override
@@ -100,6 +100,10 @@ public class TsApiServiceImpl implements TsApiService {
 	}
 
 	private Mono<TsResponseWrapper<List<TsMessageStatusResponse>>> messageStatusEmptyResponse() {
-		return Mono.just(new TsResponseWrapper<>(0, "OK", Collections.emptyList()));
+		TsResponseWrapper<List<TsMessageStatusResponse>> response = new TsResponseWrapper<>();
+		response.setResponseCode(0);
+		response.setResponseStatus("OK");
+		response.setResponseResult(Collections.emptyList());
+		return Mono.just(response);
 	}
 }

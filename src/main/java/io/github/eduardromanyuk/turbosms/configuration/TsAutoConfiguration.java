@@ -10,8 +10,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.ClientRequest;
-import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
@@ -22,26 +20,15 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class TsAutoConfiguration {
     private final TsProperties properties;
     private static final String BASE_URL = "https://api.turbosms.ua";
-    private static final String TOKEN = "token";
 
     @Bean
     public TsApiService messageService() {
-        return new TsApiServiceImpl(webClient());
+        return new TsApiServiceImpl(webClient(), properties.getToken());
     }
 
     private WebClient webClient() {
         return WebClient.builder()
                 .baseUrl(BASE_URL)
-                .filter(tokenFilter())
                 .build();
-    }
-
-    private ExchangeFilterFunction tokenFilter() {
-        return (request, next) -> {
-            ClientRequest modifiedRequest = ClientRequest.from(request)
-                    .attribute(TOKEN, properties.getToken())
-                    .build();
-            return next.exchange(modifiedRequest);
-        };
     }
 }
