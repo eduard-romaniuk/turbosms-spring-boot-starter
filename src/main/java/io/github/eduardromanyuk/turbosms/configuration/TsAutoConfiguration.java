@@ -1,21 +1,18 @@
 package io.github.eduardromanyuk.turbosms.configuration;
 
-import lombok.RequiredArgsConstructor;
 import io.github.eduardromanyuk.turbosms.property.TsProperties;
 import io.github.eduardromanyuk.turbosms.service.TsApiService;
 import io.github.eduardromanyuk.turbosms.service.impl.TsApiServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.reactive.function.client.ClientRequest;
+import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 @RequiredArgsConstructor
@@ -25,20 +22,26 @@ import java.util.List;
 public class TsAutoConfiguration {
     private final TsProperties properties;
     private static final String BASE_URL = "https://api.turbosms.ua";
+    private static final String TOKEN = "token";
 
     @Bean
     public TsApiService messageService() {
-        return new TsApiServiceImpl(restTemplate());
+        return new TsApiServiceImpl(webClient());
     }
 
-    private RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplateBuilder().rootUri(BASE_URL).build();
-        List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
-        if (CollectionUtils.isEmpty(interceptors)) {
-            interceptors = new ArrayList<>();
-        }
-        interceptors.add(new RestTemplateAuthorizationInterceptor(properties.getToken()));
-        restTemplate.setInterceptors(interceptors);
-        return restTemplate;
+    private WebClient webClient() {
+        return WebClient.builder()
+                .baseUrl(BASE_URL)
+                .filter(tokenFilter())
+                .build();
+    }
+
+    private ExchangeFilterFunction tokenFilter() {
+        return (request, next) -> {
+            ClientRequest modifiedRequest = ClientRequest.from(request)
+                    .attribute(TOKEN, properties.getToken())
+                    .build();
+            return next.exchange(modifiedRequest);
+        };
     }
 }
