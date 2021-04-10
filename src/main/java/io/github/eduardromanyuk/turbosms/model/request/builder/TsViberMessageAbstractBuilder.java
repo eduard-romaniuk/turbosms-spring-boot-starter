@@ -38,4 +38,12 @@ public abstract class TsViberMessageAbstractBuilder<B extends TsMessageAbstractB
         message.setTransactional(true);
         return getBuilder();
     }
+
+    public B fileId(long id) {
+        if (id < 1) {
+            throw new IllegalArgumentException("id cannot be less than 1");
+        }
+        message.setFileId(id);
+        return getBuilder();
+    }
 }

@@ -15,6 +15,7 @@ public class TsViberMessageImpl extends TsMessageImpl implements TsViberMessage 
     private String action;
     private Boolean countClicks;
     private Boolean transactional;
+    private Long fileId;
 
     public TsViberMessageImpl(String sender) {
         this.sender = sender;

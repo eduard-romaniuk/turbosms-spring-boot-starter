@@ -22,4 +22,7 @@ public interface TsViberMessage extends TsMessage {
 
     @JsonProperty("is_transactional")
     Boolean getTransactional();
+
+    @JsonProperty("file_id")
+    Long getFileId();
 }
