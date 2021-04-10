@@ -4,23 +4,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import io.github.eduardromanyuk.turbosms.model.request.*;
+import io.github.eduardromanyuk.turbosms.model.response.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.client.RestTemplate;
 
-import io.github.eduardromanyuk.turbosms.model.request.TsHybridMessage;
-import io.github.eduardromanyuk.turbosms.model.request.TsMessageStatusRequest;
-import io.github.eduardromanyuk.turbosms.model.request.TsSmsMessage;
-import io.github.eduardromanyuk.turbosms.model.request.TsViberMessage;
 import io.github.eduardromanyuk.turbosms.model.request.impl.TsHybridMessageImpl;
-import io.github.eduardromanyuk.turbosms.model.response.TsBalanceResponse;
-import io.github.eduardromanyuk.turbosms.model.response.TsMessageStatusResponse;
-import io.github.eduardromanyuk.turbosms.model.response.TsResponse;
-import io.github.eduardromanyuk.turbosms.model.response.TsResponseWrapper;
 import io.github.eduardromanyuk.turbosms.service.TsMessageService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class TsMessageServiceImpl implements TsMessageService {
+	private static final String EMPTY = "";
 	private final TsRequestService requestService;
 
 	public TsMessageServiceImpl(RestTemplate restTemplate) {
@@ -62,6 +57,30 @@ public class TsMessageServiceImpl implements TsMessageService {
 		return requestService.request(
 				TsEndpoint.USER_BALANCE,
 				new ParameterizedTypeReference<TsResponseWrapper<TsBalanceResponse>>() {}
+		);
+	}
+
+	@Override
+	public Optional<TsResponseWrapper<TsFileResponse>> fileAdd(TsFileUrlRequest urlRequest) {
+		if (urlRequest.getUrl() == null || EMPTY.equals(urlRequest.getUrl().trim())) {
+			throw new IllegalArgumentException("url field cannot be null or empty");
+		}
+		return requestService.request(
+				TsEndpoint.FILE_ADD,
+				urlRequest,
+				new ParameterizedTypeReference<TsResponseWrapper<TsFileResponse>>() {}
+		);
+	}
+
+	@Override
+	public Optional<TsResponseWrapper<TsFileResponse>> fileAdd(TsFileDataRequest dataRequest) {
+		if (dataRequest.getData() == null || EMPTY.equals(dataRequest.getData().trim())) {
+			throw new IllegalArgumentException("data field cannot be null or empty");
+		}
+		return requestService.request(
+				TsEndpoint.FILE_ADD,
+				dataRequest,
+				new ParameterizedTypeReference<TsResponseWrapper<TsFileResponse>>() {}
 		);
 	}
 
