@@ -1,4 +1,4 @@
-# TurboSMS SpringBoot starter ![maven](https://img.shields.io/maven-central/v/io.github.eduard-romanyuk/turbosms-spring-boot-starter.svg?label=maven)
+# TurboSMS SpringBoot starter
 
 ## Description
 This starter provides infrastructure for using [TurboSMS](https://turbosms.ua/) sms/viber provider. For communication used [HTTP API](https://turbosms.ua/api.html).
@@ -6,8 +6,8 @@ This starter provides infrastructure for using [TurboSMS](https://turbosms.ua/) 
 ## Versions
 | Version | Branch | Documentation |
 | ------- | ------------------ | --- |
-| 2.0.0  | [main](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/tree/main) | readme.md |
-| 1.2.0  | [v1](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/tree/v1) | [wiki](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/wiki/v1.2.0-documentation) |
+| ![Maven Central](https://img.shields.io/maven-central/v/io.github.eduard-romanyuk/turbosms-spring-boot-starter/2?label=maven) | [main](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/tree/main) | readme.md |
+| ![Maven Central](https://img.shields.io/maven-central/v/io.github.eduard-romanyuk/turbosms-spring-boot-starter/1?label=maven) | [v1](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/tree/v1) | [wiki](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/wiki/v1.2.0-documentation) |
 
 ## Configure starter
 For enabling starter you should provide `turbosms.token` property. After that autowire `TsApiService` anywhere you need access to **TurboSMS** API's.
