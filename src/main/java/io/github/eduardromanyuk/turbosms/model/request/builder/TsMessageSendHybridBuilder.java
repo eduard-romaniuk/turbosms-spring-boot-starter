@@ -1,8 +1,6 @@
 package io.github.eduardromanyuk.turbosms.model.request.builder;
 
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendViberMessageImpl;
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendHybridRequestImpl;
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendSmsRequestImpl;
+import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendHybridRequest;
 
 public class TsMessageSendHybridBuilder extends TsMessageSendAbstractBuilder<TsMessageSendHybridRequestImpl, TsMessageSendHybridBuilder> {
     private TsMessageSendSmsRequestImpl sms;
@@ -36,7 +34,7 @@ public class TsMessageSendHybridBuilder extends TsMessageSendAbstractBuilder<TsM
         return new TsMessageSendHybridViberSettingsBuilder(viber, this);
     }
 
-    public TsMessageSendHybridRequestImpl build() {
+    public TsMessageSendHybridRequest build() {
         if (sms != null) {
             message.setSms(sms);
         }

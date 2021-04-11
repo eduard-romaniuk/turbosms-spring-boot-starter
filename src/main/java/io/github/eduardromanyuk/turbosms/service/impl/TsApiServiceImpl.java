@@ -1,7 +1,6 @@
 package io.github.eduardromanyuk.turbosms.service.impl;
 
 import io.github.eduardromanyuk.turbosms.model.request.*;
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendHybridRequestImpl;
 import io.github.eduardromanyuk.turbosms.model.response.*;
 import io.github.eduardromanyuk.turbosms.service.TsApiService;
 import lombok.RequiredArgsConstructor;
@@ -20,12 +19,20 @@ public class TsApiServiceImpl implements TsApiService {
 
 	@Override
 	public ResponseEntity<TsResponseWrapper<List<TsMessageSendResponse>>> messageSend(TsMessageSendSmsRequest smsMessage) {
-		return this.messageSend(new TsMessageSendHybridRequestImpl(smsMessage));
+		return request(
+				TsEndpoint.MESSAGE_SEND,
+				Collections.singletonMap("sms", smsMessage),
+				new ParameterizedTypeReference<TsResponseWrapper<List<TsMessageSendResponse>>>() {}
+		);
 	}
 
 	@Override
 	public ResponseEntity<TsResponseWrapper<List<TsMessageSendResponse>>> messageSend(TsMessageSendViberMessage viberMessage) {
-		return this.messageSend(new TsMessageSendHybridRequestImpl(viberMessage));
+		return request(
+				TsEndpoint.MESSAGE_SEND,
+				Collections.singletonMap("viber", viberMessage),
+				new ParameterizedTypeReference<TsResponseWrapper<List<TsMessageSendResponse>>>() {}
+		);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
-package io.github.eduardromanyuk.turbosms.model.request.impl;
+package io.github.eduardromanyuk.turbosms.model.request.builder;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,9 +9,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-@Setter
 @ToString
-public class TsMessageSendRequestImpl {
+@Setter(AccessLevel.PACKAGE)
+class TsMessageSendRequestImpl {
     private List<String> recipients;
     private String sender;
     private String text;

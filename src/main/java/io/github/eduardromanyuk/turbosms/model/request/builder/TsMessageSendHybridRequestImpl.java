@@ -1,30 +1,31 @@
-package io.github.eduardromanyuk.turbosms.model.request.impl;
+package io.github.eduardromanyuk.turbosms.model.request.builder;
 
 import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendHybridRequest;
 import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendSmsRequest;
 import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendViberMessage;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter
 @ToString(callSuper = true)
-public class TsMessageSendHybridRequestImpl extends TsMessageSendRequestImpl implements TsMessageSendHybridRequest {
+@Setter(AccessLevel.PACKAGE)
+class TsMessageSendHybridRequestImpl extends TsMessageSendRequestImpl implements TsMessageSendHybridRequest {
     private TsMessageSendSmsRequest sms;
     private TsMessageSendViberMessage viber;
 
-    public TsMessageSendHybridRequestImpl(TsMessageSendSmsRequest settings) {
+    TsMessageSendHybridRequestImpl(TsMessageSendSmsRequest settings) {
         this.sms = settings;
     }
 
-    public TsMessageSendHybridRequestImpl(TsMessageSendViberMessage settings) {
+    TsMessageSendHybridRequestImpl(TsMessageSendViberMessage settings) {
         this.viber = settings;
     }
 
-    public TsMessageSendHybridRequestImpl(String sender) {
+    TsMessageSendHybridRequestImpl(String sender) {
         this.setSender(sender);
     }
 
-    public TsMessageSendHybridRequestImpl() {}
+    TsMessageSendHybridRequestImpl() {}
 }

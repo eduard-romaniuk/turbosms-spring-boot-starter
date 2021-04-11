@@ -1,7 +1,5 @@
 package io.github.eduardromanyuk.turbosms.model.request.builder;
 
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendRequestImpl;
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.LinkedList;

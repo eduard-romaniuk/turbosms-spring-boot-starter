@@ -1,7 +1,5 @@
 package io.github.eduardromanyuk.turbosms.model.request.builder;
 
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendViberMessageImpl;
-
 public abstract class TsMessageSendViberAbstractBuilder<B extends TsMessageSendAbstractBuilder<TsMessageSendViberMessageImpl, B>>
         extends TsMessageSendAbstractBuilder<TsMessageSendViberMessageImpl, B> {
     

@@ -1,9 +1,9 @@
-package io.github.eduardromanyuk.turbosms.model.request.impl;
+package io.github.eduardromanyuk.turbosms.model.request.builder;
 
 import io.github.eduardromanyuk.turbosms.model.request.TsFileAddDataRequest;
 import io.github.eduardromanyuk.turbosms.model.request.TsFileAddUrlRequest;
 
-public class TsFileAddImpl {
+public class TsFileAddBuilder {
     public static TsFileAddUrlRequest url(String url) {
         return () -> url;
     }
@@ -12,6 +12,6 @@ public class TsFileAddImpl {
         return () -> data;
     }
 
-    private TsFileAddImpl() {
+    private TsFileAddBuilder() {
     }
 }

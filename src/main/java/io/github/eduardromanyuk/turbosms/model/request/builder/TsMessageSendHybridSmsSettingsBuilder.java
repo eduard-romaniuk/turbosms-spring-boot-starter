@@ -1,7 +1,5 @@
 package io.github.eduardromanyuk.turbosms.model.request.builder;
 
-import io.github.eduardromanyuk.turbosms.model.request.impl.TsMessageSendSmsRequestImpl;
-
 public class TsMessageSendHybridSmsSettingsBuilder extends TsMessageSendSmsAbstractBuilder<TsMessageSendHybridSmsSettingsBuilder> {
     private final TsMessageSendHybridBuilder parentBuilder;
 
