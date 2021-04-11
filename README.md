@@ -116,7 +116,8 @@ public class MessageStatusExample {
         .messages("id1", "id2")
         .addMessage("id3")
         .build();
-    ResponseEntity<TsResponseWrapper<List<TsMessageStatusResponse>>> response = service.messageStatus(statusRequest);
+    ResponseEntity<TsResponseWrapper<List<TsMessageStatusResponse>>> response = 
+        service.messageStatus(statusRequest);
     if (response.hasBody()) {
       TsResponseWrapper<List<TsMessageStatusResponse>> body = response.getBody();
       System.out.println("Response status: " + body.getResponseStatus());
@@ -213,7 +214,8 @@ public class FileDetailsExample {
   }
 
   public void fileDetails() {
-    ResponseEntity<TsResponseWrapper<TsFileAddResponse>> response = service.fileDetails(TsFileDetailsRequestBuilder.id(1));
+    ResponseEntity<TsResponseWrapper<TsFileAddResponse>> response =
+        service.fileDetails(TsFileDetailsRequestBuilder.id(1));
     if (response.hasBody()) {
       TsResponseWrapper<TsFileAddResponse> body = response.getBody();
       System.out.println("Response status: " + body.getResponseStatus());
