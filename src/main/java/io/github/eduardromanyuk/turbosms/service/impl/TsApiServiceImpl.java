@@ -80,10 +80,10 @@ public class TsApiServiceImpl implements TsApiService {
 	}
 
 	@Override
-	public ResponseEntity<TsResponseWrapper<TsFileAddResponse>> fileDetails(long id) {
+	public ResponseEntity<TsResponseWrapper<TsFileAddResponse>> fileDetails(TsFileDetailsRequest detailsRequest) {
 		return request(
 				TsEndpoint.FILE_DETAILS,
-				Collections.singletonMap("id", id),
+				detailsRequest,
 				new ParameterizedTypeReference<TsResponseWrapper<TsFileAddResponse>>() {}
 		);
 	}

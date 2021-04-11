@@ -21,5 +21,5 @@ public interface TsApiService {
 
     ResponseEntity<TsResponseWrapper<TsFileAddResponse>> fileAdd(TsFileAddDataRequest dataRequest);
 
-    ResponseEntity<TsResponseWrapper<TsFileAddResponse>> fileDetails(long id);
+    ResponseEntity<TsResponseWrapper<TsFileAddResponse>> fileDetails(TsFileDetailsRequest detailsRequest);
 }
