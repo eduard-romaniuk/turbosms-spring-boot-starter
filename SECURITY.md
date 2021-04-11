@@ -10,4 +10,4 @@
 
 ## Reporting a Vulnerability
 
-Create issue with [vulnerability](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/labels/vulnerability) tag
+Create issue with [vulnerability](https://github.com/eduard-romanyuk/turbosms-spring-boot-starter/labels/vulnerability) label
