@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class TsResponseWrapper<T> extends TsResponseStatus {
+public class TsResponseWrapper<T> extends TsResponseStatusBody {
 	@JsonProperty("response_result")
 	private T responseResult;
 }

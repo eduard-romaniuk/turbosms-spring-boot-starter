@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false, of = "messageId")
-public class TsMessageSendResponse extends TsResponseStatus {
+public class TsMessageSendResponse extends TsResponseStatusBody {
     @JsonProperty("phone")
     private String phone;
 

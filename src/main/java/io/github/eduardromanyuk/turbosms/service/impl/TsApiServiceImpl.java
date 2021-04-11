@@ -102,7 +102,7 @@ public class TsApiServiceImpl implements TsApiService {
 	private Mono<TsResponseWrapper<List<TsMessageStatusResponse>>> messageStatusEmptyResponse() {
 		TsResponseWrapper<List<TsMessageStatusResponse>> response = new TsResponseWrapper<>();
 		response.setResponseCode(0);
-		response.setResponseStatus("OK");
+		response.setResponseStatus(TsResponseStatus.OK);
 		response.setResponseResult(Collections.emptyList());
 		return Mono.just(response);
 	}

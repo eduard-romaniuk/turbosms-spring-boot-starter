@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false, of = "messageId")
-public class TsMessageStatusResponse extends TsResponseStatus {
+public class TsMessageStatusResponse extends TsResponseStatusBody {
 	private static String VIBER = "viber";
 	private static String SMS = "sms";
 
