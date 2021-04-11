@@ -2,7 +2,7 @@ package io.github.eduardromanyuk.turbosms.model.request.builder;
 
 import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendHybridRequest;
 import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendSmsRequest;
-import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendViberMessage;
+import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendViberRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,13 +13,13 @@ import lombok.ToString;
 @Setter(AccessLevel.PACKAGE)
 class TsMessageSendHybridRequestImpl extends TsMessageSendRequestImpl implements TsMessageSendHybridRequest {
     private TsMessageSendSmsRequest sms;
-    private TsMessageSendViberMessage viber;
+    private TsMessageSendViberRequest viber;
 
     TsMessageSendHybridRequestImpl(TsMessageSendSmsRequest settings) {
         this.sms = settings;
     }
 
-    TsMessageSendHybridRequestImpl(TsMessageSendViberMessage settings) {
+    TsMessageSendHybridRequestImpl(TsMessageSendViberRequest settings) {
         this.viber = settings;
     }
 

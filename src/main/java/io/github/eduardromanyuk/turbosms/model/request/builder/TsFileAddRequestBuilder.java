@@ -3,7 +3,7 @@ package io.github.eduardromanyuk.turbosms.model.request.builder;
 import io.github.eduardromanyuk.turbosms.model.request.TsFileAddDataRequest;
 import io.github.eduardromanyuk.turbosms.model.request.TsFileAddUrlRequest;
 
-public class TsFileAddBuilder {
+public class TsFileAddRequestBuilder {
     public static TsFileAddUrlRequest url(String url) {
         return () -> url;
     }
@@ -12,6 +12,6 @@ public class TsFileAddBuilder {
         return () -> data;
     }
 
-    private TsFileAddBuilder() {
+    private TsFileAddRequestBuilder() {
     }
 }

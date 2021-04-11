@@ -9,5 +9,5 @@ public interface TsMessageSendHybridRequest extends TsMessageSendRequest {
     TsMessageSendSmsRequest getSms();
 
     @JsonProperty("viber")
-    TsMessageSendViberMessage getViber();
+    TsMessageSendViberRequest getViber();
 }

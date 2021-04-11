@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class TsMessageSendAbstractBuilder<T extends TsMessageSendRequestImpl, B extends TsMessageSendAbstractBuilder<T, B>> {
+public abstract class TsMessageSendRequestAbstractBuilder<T extends TsMessageSendRequestImpl, B extends TsMessageSendRequestAbstractBuilder<T, B>> {
     protected T message;
 
-    protected TsMessageSendAbstractBuilder(T message) {
+    protected TsMessageSendRequestAbstractBuilder(T message) {
         this.message = message;
     }
 

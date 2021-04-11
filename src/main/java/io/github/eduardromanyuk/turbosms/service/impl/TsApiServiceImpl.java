@@ -27,7 +27,7 @@ public class TsApiServiceImpl implements TsApiService {
 	}
 
 	@Override
-	public ResponseEntity<TsResponseWrapper<List<TsMessageSendResponse>>> messageSend(TsMessageSendViberMessage viberMessage) {
+	public ResponseEntity<TsResponseWrapper<List<TsMessageSendResponse>>> messageSend(TsMessageSendViberRequest viberMessage) {
 		return request(
 				TsEndpoint.MESSAGE_SEND,
 				Collections.singletonMap("viber", viberMessage),

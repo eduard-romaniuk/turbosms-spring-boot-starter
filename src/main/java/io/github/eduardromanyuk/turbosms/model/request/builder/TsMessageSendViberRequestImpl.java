@@ -1,6 +1,6 @@
 package io.github.eduardromanyuk.turbosms.model.request.builder;
 
-import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendViberMessage;
+import io.github.eduardromanyuk.turbosms.model.request.TsMessageSendViberRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @Setter(AccessLevel.PACKAGE)
-public class TsMessageSendViberMessageImpl extends TsMessageSendRequestImpl implements TsMessageSendViberMessage {
+public class TsMessageSendViberRequestImpl extends TsMessageSendRequestImpl implements TsMessageSendViberRequest {
     private Integer ttl;
     private String imageUrl;
     private String caption;
@@ -18,9 +18,9 @@ public class TsMessageSendViberMessageImpl extends TsMessageSendRequestImpl impl
     private Boolean transactional;
     private Long fileId;
 
-    TsMessageSendViberMessageImpl(String sender) {
+    TsMessageSendViberRequestImpl(String sender) {
         this.setSender(sender);
     }
 
-    TsMessageSendViberMessageImpl() {}
+    TsMessageSendViberRequestImpl() {}
 }
