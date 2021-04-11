@@ -31,7 +31,7 @@ public class MessageSendExample {
   }
 
   public void smsBuilder() {
-    TsMessageSendSmsRequest sms = TsMessageSendSmsBuilder.from(SMS_SENDER)
+    TsMessageSendSmsRequest sms = TsMessageSendSmsRequestBuilder.from(SMS_SENDER)
         .recipient("+380991112233")
         .text("Hello, TurboSMS")
         .build();
@@ -39,7 +39,7 @@ public class MessageSendExample {
   }
 
   public void viberBuilder() {
-    TsMessageSendViberMessage viber = TsMessageSendViberBuilder.from(VIBER_SENDER)
+    TsMessageSendViberRequest viber = TsMessageSendViberRequestBuilder.from(VIBER_SENDER)
         .countClicks()
         .recipient("+380991112233")
         .text("Hello, TurboSMS")
@@ -48,7 +48,7 @@ public class MessageSendExample {
   }
 
   public void hybridBuilder() {
-    TsMessageSendHybridRequest hybrid = TsMessageSendHybridBuilder.from(SMS_SENDER, VIBER_SENDER)
+    TsMessageSendHybridRequest hybrid = TsMessageSendHybridRequestBuilder.from(SMS_SENDER, VIBER_SENDER)
         .recipient("+380991112233")
         .viberSettings()
         .text("Text for Viber")
@@ -63,7 +63,7 @@ public class MessageSendExample {
   }
 
   public void hybridBuilderWithCommonText() {
-    TsMessageSendHybridRequest hybrid = TsMessageSendHybridBuilder.from(SMS_SENDER, VIBER_SENDER)
+    TsMessageSendHybridRequest hybrid = TsMessageSendHybridRequestBuilder.from(SMS_SENDER, VIBER_SENDER)
         .recipient("+380991112233")
         .text("Common text")
         .viberSettings()
